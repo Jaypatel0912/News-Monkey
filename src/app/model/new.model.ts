@@ -1,0 +1,1 @@
+export const CATEGORY = [{name:'Business', value: 'business' },{name:'Entertainment', value: 'entertainment' },{name:'General', value: 'general' },{name:'Health', value:'health' },{name:'Technology', value:'technology' }]

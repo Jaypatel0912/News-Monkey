@@ -1,0 +1,41 @@
+<div class="container mt-4" style="overflow-y: auto;">
+    <div class="search-filter">
+        <div class="search">
+            <span class="p-input-icon-left search-input">
+                <em class="pi pi-search"></em>
+                <span class="vertical-line"></span>
+                <input type="text" placeholder="Search" pInputText [(ngModel)]="searchInput" (input)="onSearch()" />
+            </span>
+        </div>
+        <div class="category">
+            <p-dropdown
+            [options]="category"
+            [(ngModel)]="selectedCategory"
+            name="cat"
+            optionLabel="name"
+            appendTo="body"
+            (onChange)="onSelectCategory()"
+            styleClass="custom-dropdown"
+          ></p-dropdown>
+        </div>
+    </div>
+    <div class="row news">
+            <div *ngFor="let news of filteredNews" class="card col-md-4 m-3" style="width: 18rem;">
+                  <img [src]="newsImage" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ news.name }}</h5>
+                    <p class="card-text">{{ news.description }}</p>
+                    <ul>
+                      <li>category : {{news.category}}</li>
+                      <li>url : {{news.url}}</li>
+                    </ul>
+      
+                    <!-- for Date purpose  -->
+                    <!-- <p>Published Date : {{news.publishedAt | date}}</p> -->
+                    <p class="author">- {{ news.author }}</p>
+                    <button class="btn btn-primary" (click)="onGetNewsDetails(news)">Read more..</button>
+                  </div>
+            </div>     
+    </div>
+</div>
+  
